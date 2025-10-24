@@ -1,0 +1,1032 @@
+/* 基础样式重置和字体设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.6;
+    color: #2c2c2c;
+    background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc6 50%, #d4c4a8 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* 标题字体 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: #8B4B8C;
+}
+
+/* 动态渐变Banner */
+.hero-banner {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide[data-film="gone-with-wind"] {
+    background-image: url('images/back.jpg');
+}
+
+.slide[data-film="hamilton-lady"] {
+    background-image: url('images/back.jpg');
+}
+
+.slide[data-film="age-of-innocence"] {
+    background-image: url('images/back.jpg');
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-content {
+    text-align: center;
+    color: white;
+    z-index: 3;
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #D4AF37, #E6B8A2, #8B4B8C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+/* 导航栏 */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #8B4B8C;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #2c2c2c;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-menu a:hover {
+    color: #8B4B8C;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #D4AF37, #8B4B8C);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* 主要内容区域 */
+.main-content {
+    margin-top: 80px;
+}
+
+/* 区域标题样式 */
+.section-header {
+    text-align: center;
+    margin: 4rem 0 3rem;
+    position: relative;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::before,
+.section-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(45deg, #D4AF37, #8B4B8C);
+}
+
+.section-title::before {
+    left: -80px;
+}
+
+.section-title::after {
+    right: -80px;
+}
+
+.decorative-line {
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    margin: 0 auto;
+}
+
+/* 经典特写轮播区域 */
+.goddesses-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(230, 184, 162, 0.05) 50%, rgba(139, 75, 140, 0.05) 100%);
+}
+
+.goddess-carousel {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.goddess-slide {
+    display: none;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.goddess-slide.active {
+    display: flex;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.goddess-image {
+    flex: 1;
+    position: relative;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+.image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-placeholder.gone-with-wind {
+    background-image: url('images/gone-with-wind.jpg'); /* 图片路径 */
+    background-size: contain; /* 图片按比例缩放，完全覆盖容器 */
+    background-position: center; /* 图片居中显示 */
+}
+
+.image-placeholder.hamilton-lady {
+    background-image: url('images/hamilton-lady(1).jpg'); /* 图片路径 */
+    background-size: contain; /* 图片按比例缩放，完全覆盖容器 */
+    background-position: center; /* 图片居中显示 */
+}
+
+.image-placeholder.age-of-innocence {
+    background-image: url('images/age-of-innocence.jpg'); /* 图片路径 */
+    background-size: contain; /* 图片按比例缩放，完全覆盖容器 */
+    background-position: center; /* 图片居中显示 */
+}
+
+.image-overlay {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: white;
+    padding: 2rem;
+    width: 100%;
+}
+
+.image-overlay h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #D4AF37;
+}
+
+.film-year {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.goddess-info {
+    flex: 1;
+    padding: 3rem;
+    background: white;
+}
+
+.goddess-info h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #8B4B8C;
+}
+
+.film-details {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.film-description {
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.classic-quote {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #8B4B8C;
+    border-left: 4px solid #D4AF37;
+    padding-left: 1.5rem;
+    margin: 0;
+    background: rgba(212, 175, 55, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 0 10px 10px 0;
+}
+
+/* 轮播控制按钮 */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    z-index: 10;
+}
+
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #8B4B8C;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-btn:hover {
+    background: #8B4B8C;
+    color: white;
+    transform: scale(1.1);
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(139, 75, 140, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #8B4B8C;
+    transform: scale(1.2);
+}
+
+
+/* 电影封面展示区域 */
+.film-covers-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(139, 75, 140, 0.05) 0%, rgba(212, 175, 55, 0.05) 50%, rgba(230, 184, 162, 0.05) 100%);
+}
+
+.canvas-container {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+#movieCanvas {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #D4AF37, #E6B8A2, #8B4B8C);
+}
+
+.film-covers-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.film-cover-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.film-cover-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.film-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.film-poster {
+    height: 300px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.film-poster::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(139, 75, 140, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.film-cover-item:hover .film-poster::after {
+    opacity: 1;
+}
+
+.film-poster.gone-with-wind {
+    background-image: url('images/1.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.film-poster.hamilton-lady {
+    background-image: url('images/2.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.film-poster.age-of-innocence {
+    background-image: url('images/3.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.film-poster.little-women {
+    background-image: url('images/4.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.film-poster.war-peace {
+    background-image: url('images/5.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.film-poster.barry-lyndon {
+    background-image: url('images/6.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.film-poster.onegin {
+    background-image: url('images/7.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.film-poster.francesca {
+    background-image: url('images/8.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.film-poster.nosferatu {
+    background-image: url('images/9.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.film-poster.sissi {
+    background-image: url('images/10.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.film-poster.dracula {
+    background-image: url('images/11.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.film-poster.adele-hugo {
+    background-image: url('images/12.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.film-poster.anna-karenina-1948 {
+    background-image: url('images/13.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.film-poster.camille-1981 {
+    background-image: url('images/14.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.film-poster.rodin-lover {
+    background-image: url('images/15.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.film-poster.lady-portrait {
+    background-image: url('images/16.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+.film-cover-item h3 {
+    padding: 1rem 1rem 0.5rem;
+    font-size: 1.1rem;
+    color: #8B4B8C;
+    margin: 0;
+}
+
+.film-year {
+    padding: 0 1rem 1rem;
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* 电影信息表格 */
+.film-table-section {
+    max-width: 1000px;
+    margin: 4rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.film-table-section h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #8B4B8C;
+    font-size: 1.8rem;
+}
+
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.table-btn {
+    background: linear-gradient(45deg, #D4AF37, #8B4B8C);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.table-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.table-search {
+    flex: 1;
+    max-width: 300px;
+}
+
+.table-search input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid rgba(139, 75, 140, 0.2);
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.table-search input:focus {
+    outline: none;
+    border-color: #8B4B8C;
+}
+
+.film-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.film-table th,
+.film-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(139, 75, 140, 0.1);
+}
+
+.film-table th {
+    background: linear-gradient(45deg, #D4AF37, #8B4B8C);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.film-row {
+    transition: background-color 0.3s ease;
+}
+
+.film-row:hover {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.film-row.hidden-row {
+    display: none;
+}
+
+.film-row.hidden-row.show {
+    display: table-row;
+}
+
+.expand-btn {
+    background: linear-gradient(45deg, #E6B8A2, #8B4B8C);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.expand-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.film-details {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.film-detail-content {
+    padding: 1.5rem;
+}
+
+.film-detail-content h4 {
+    color: #8B4B8C;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.film-detail-content p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.film-detail-content blockquote {
+    font-style: italic;
+    color: #8B4B8C;
+    border-left: 4px solid #D4AF37;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    background: rgba(212, 175, 55, 0.1);
+    padding: 1rem 1rem 1rem 1.5rem;
+    border-radius: 0 10px 10px 0;
+}
+
+.detail-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.detail-link {
+    background: linear-gradient(45deg, #D4AF37, #8B4B8C);
+    color: white;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.detail-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.table-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.show-more-btn {
+    background: linear-gradient(45deg, #8B4B8C, #D4AF37);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.show-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 经典瞬间画廊 */
+.gallery-section {
+    padding: 4rem 2rem;
+    background: white;
+}
+
+.gallery-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.1);
+}
+
+.gallery-image.gone-with-wind {
+    background-image: url('images/_1.jpg');
+    background-size: cover;
+}
+
+.gallery-image.hamilton-lady {
+    background-image: url('images/_2.jpg');
+    background-size: cover;
+}
+
+.gallery-image.age-of-innocence {
+    background-image: url('images/_3.jpg');
+    background-size: cover;
+}
+
+
+.gallery-image.little-women {
+    background-image: url('images/_4.jpg');
+    background-size: cover;
+}
+
+.gallery-image.adele-hugo {
+    background-image: url('images/_5.jpg');
+    background-size: cover;
+}
+
+.gallery-image.dracula {
+    background-image: url('images/_6.jpg');
+    background-size: cover;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #D4AF37;
+}
+
+/* 古典美学彩蛋区域 */
+.classic-footer {
+    background: linear-gradient(135deg, #8B4B8C 0%, #D4AF37 50%, #E6B8A2 100%);
+    color: white;
+    padding: 4rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.classic-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0,10 Q25,0 50,10 T100,10 L100,20 L0,20 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-svg {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 2rem;
+}
+
+.footer-text {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    fill: white;
+    font-weight: 600;
+}
+
+.footer-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .banner-films {
+        gap: 1rem;
+    }
+    
+    .goddess-slide.active {
+        flex-direction: column;
+    }
+    
+    .goddess-image {
+        min-height: 300px;
+    }
+    
+    .goddess-info {
+        padding: 2rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .film-covers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title::before,
+    .section-title::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .goddess-info {
+        padding: 1.5rem;
+    }
+    
+    .carousel-controls {
+        padding: 0 1rem;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
